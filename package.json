@@ -1,8 +1,9 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "web-test-runner \"src/**/*.test.ts\""
+    "build": "SNOWPACK_PUBLIC_BASE_URL=DARK_STATIC_ASSETS_BASE_URL snowpack build",
+    "test": "web-test-runner \"src/**/*.test.ts\"",
+    "publish": "dark-cli build --canvas $DARK_CLI_CANVAS"
   },
   "dependencies": {
     "svelte": "^3.37.0"
