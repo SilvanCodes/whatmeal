@@ -21,7 +21,7 @@
 
 <div class="elc-cover">
   <div class="elc-center">
-    <h2>Wie waere es mit:</h2>
+    <h2>Wie wäre es mit:</h2>
     <h1>
       {#await suggestion}
         ?
@@ -35,7 +35,7 @@
       <button on:click={getRandomMeal}>Anderer Vorschlag</button>
       <div class="elc-box elc-stack">
         <input bind:value={addMealInput} on:change={addMeal} type="text" />
-        <button on:click={addMeal}>Hinzufuegen</button>
+        <button on:click={addMeal}>Hinzufügen</button>
       </div>
       <div class="elc-box elc-stack">
         <input
@@ -43,7 +43,7 @@
           on:change={deleteMeal}
           type="text"
         />
-        <button on:click={deleteMeal}>Loeschen</button>
+        <button on:click={deleteMeal}>Löschen</button>
       </div>
     </div>
   </div>
