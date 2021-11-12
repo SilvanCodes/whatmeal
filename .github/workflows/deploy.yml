@@ -10,7 +10,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
@@ -42,4 +42,8 @@ jobs:
           name: build-dir
     
       - name: Deploy to Dark
+        env:
+          DARK_CLI_USER: ${{ secrets.DARK_CLI_USER }}
+          DARK_CLI_PASSWORD: ${{ secrets.DARK_CLI_PASSWORD }}
+          DARK_CLI_CANVAS: ${{ secrets.DARK_CLI_CANVAS }}
         run: npm run publish
