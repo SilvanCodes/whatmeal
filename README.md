@@ -1,29 +1,23 @@
-# New Project
+# WhatMeal
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+> Started from `npx create-snowpack-app whatmeal --template @snowpack/app-template-svelte-typescript`
 
-## Available Scripts
+Super duper cool with [Dark] and [Snowpack] and [Svelte].
 
-### npm start
+[Dark]: https://darklang.com
+[Snowpack]: https://www.snowpack.dev
+[Svelte]: https://svelte.dev
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+## Pitfalls sofar
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+Had to use `import.meta.env.` ([which I stumbled upon here]) instead of `__SNOWPACK_ENV__` as described [in the docs].
+No clue why it fails, maybe due to Typescript?
 
-### npm test
+[which I stumbled upon here]: https://bhirmbani.medium.com/managing-multiple-environment-in-snowpack-18ba46ed78b
+[in the docs]: https://www.snowpack.dev/reference/environment-variables
 
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+## Quirks
 
-### npm run build
+See `package.json` and `index.html` which had to be ajusted for a variable root directory configured via `SNOWPACK_PUBLIC_BASE_URL` in `.env` [due to this].
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.mjs` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+[due to this]: https://docs.darklang.com/static-assets/#configure-your-client
