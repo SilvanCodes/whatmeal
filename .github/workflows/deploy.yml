@@ -36,6 +36,11 @@ jobs:
     needs: build
     
     steps:
+      -name: Download dark-cli
+        run: |
+          curl -O https://dark-cli.storage.googleapis.com/latest/dark-cli-linux
+          chmod +x ./dark-cli-linux
+
       - name: Download build dir
         uses: actions/download-artifact@v2
         with:
@@ -46,4 +51,4 @@ jobs:
           DARK_CLI_USER: ${{ secrets.DARK_CLI_USER }}
           DARK_CLI_PASSWORD: ${{ secrets.DARK_CLI_PASSWORD }}
           DARK_CLI_CANVAS: ${{ secrets.DARK_CLI_CANVAS }}
-        run: npm run publish
+        run: dark-cli-linux build --canvas $DARK_CLI_CANVAS
