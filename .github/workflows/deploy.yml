@@ -51,4 +51,4 @@ jobs:
           DARK_CLI_USER: ${{ secrets.DARK_CLI_USER }}
           DARK_CLI_PASSWORD: ${{ secrets.DARK_CLI_PASSWORD }}
           DARK_CLI_CANVAS: ${{ secrets.DARK_CLI_CANVAS }}
-        run: dark-cli-linux build --canvas $DARK_CLI_CANVAS
+        run: ./dark-cli-linux build --canvas $DARK_CLI_CANVAS
