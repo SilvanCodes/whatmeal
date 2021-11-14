@@ -28,8 +28,7 @@ jobs:
           cache: "npm"
 
       - name: Clean install dependencies
-        if: ${{ !steps.cache-npm.outputs.cache-hit }}
-        run: npm ci
+        run: npm ci --prefer-offline
 
       - name: Build project
         run: npm run build
