@@ -20,7 +20,7 @@
 </script>
 
 <div class="elc-cover" style="--cover-padding: var(--s1)">
-  <div class="elc-stack" style="--stack-margin: var(--s2)">
+  <div class="elc-stack" style="--stack-margin: calc(var(--s2) * 0.75)">
     <div class="elc-stack" style="--stack-margin: calc(var(--s1))">
       <div class="elc-stack elc-center">
         <h2 style="font-size: xx-large;">Wie wäre es mit</h2>
