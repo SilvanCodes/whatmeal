@@ -2,7 +2,14 @@ import MEAL from "./meal";
 
 // API primitives
 const api = async (path: string, init: RequestInit) =>
-    fetch(`${import.meta.env.SNOWPACK_PUBLIC_API_URL}${path}`, init).then(r => r.json()).catch(console.error);
+    fetch(`${import.meta.env.SNOWPACK_PUBLIC_API_URL}${path}`, {
+        headers: {
+            // uuid is set in src/index.ts
+            'X-Session-UUID': window.sessionStorage.getItem('uuid') as string,
+            ...init.headers
+        },
+        ...init
+    }).then(r => r.json()).catch(console.error);
 
 const GET = async (path: string) => api(path, { method: 'GET' })
 const POST = async (path: string, data: object) => (console.log(data), api(path, { method: 'POST', body: JSON.stringify(data) }))

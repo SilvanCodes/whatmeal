@@ -1,4 +1,8 @@
 import App from './App.svelte';
+import { v4 as uuid } from 'uuid';
+
+// set session uuid
+window.sessionStorage.setItem('uuid', uuid())
 
 var app = new App({
   target: document.body,
