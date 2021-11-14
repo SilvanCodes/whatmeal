@@ -21,18 +21,20 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup node
+        id: cache-npm
         uses: actions/setup-node@v2
         with:
           node-version: "16"
           cache: "npm"
 
       - name: Clean install dependencies
+        if: ${{ !steps.cache-npm.outputs.cache-hit }}
         run: npm ci
 
       - name: Build project
         run: npm run build
 
-      - name: Upload build dir
+      - name: Upload build
         uses: actions/upload-artifact@v2
         with:
           name: build-dir
@@ -56,7 +58,7 @@ jobs:
           curl -O https://dark-cli.storage.googleapis.com/latest/dark-cli-linux
           chmod +x ./dark-cli-linux
 
-      - name: Download build dir
+      - name: Download build
         uses: actions/download-artifact@v2
         with:
           name: build-dir
