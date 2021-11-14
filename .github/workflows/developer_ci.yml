@@ -43,7 +43,15 @@ jobs:
     needs: build
 
     steps:
+      - name: Check cache for dark-cli
+        id: cache-dark-cli
+        uses: actions/cache@v2
+        with:
+          path: ./dark-cli-linux
+          key: dark-cli
+
       - name: Download dark-cli
+        if: ${{ !steps.cache-dark-cli.outputs.cache-hit }}
         run: |
           curl -O https://dark-cli.storage.googleapis.com/latest/dark-cli-linux
           chmod +x ./dark-cli-linux
