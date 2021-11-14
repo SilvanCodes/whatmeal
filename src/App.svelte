@@ -19,31 +19,39 @@
   onMount(getRandomMeal);
 </script>
 
-<div class="elc-cover">
-  <div class="elc-center">
-    <h2>Wie wäre es mit:</h2>
-    <h1>
-      {#await suggestion}
-        ?
-      {:then name}
-        {name}
-      {/await}
-    </h1>
-  </div>
-  <div class="elc-center">
-    <div class="elc-stack">
-      <button on:click={getRandomMeal}>Anderer Vorschlag</button>
-      <div class="elc-box elc-stack">
-        <input bind:value={addMealInput} on:change={addMeal} type="text" />
-        <button on:click={addMeal}>Hinzufügen</button>
+<div class="elc-cover" style="--cover-padding: var(--s1)">
+  <div class="elc-stack" style="--stack-margin: var(--s2)">
+    <div class="elc-stack" style="--stack-margin: calc(var(--s1))">
+      <div class="elc-stack elc-center">
+        <h2 style="font-size: xx-large;">Wie wäre es mit</h2>
+        <h1 style="font-size: xxx-large;">
+          {#await suggestion}
+            ?
+          {:then name}
+            {name}
+          {/await}
+        </h1>
       </div>
-      <div class="elc-box elc-stack">
-        <input
-          bind:value={deleteMealInput}
-          on:change={deleteMeal}
-          type="text"
-        />
-        <button on:click={deleteMeal}>Löschen</button>
+      <div class="elc-center">
+        <button on:click={getRandomMeal}>Anderer Vorschlag</button>
+      </div>
+    </div>
+
+    <div class="elc-center">
+      <div class="elc-stack">
+        <div class="elc-box elc-stack">
+          <input bind:value={addMealInput} on:change={addMeal} type="text" />
+          <button on:click={addMeal}>Vorschlag hinzufügen</button>
+        </div>
+
+        <div class="elc-box elc-stack">
+          <input
+            bind:value={deleteMealInput}
+            on:change={deleteMeal}
+            type="text"
+          />
+          <button on:click={deleteMeal}>Vorschlag löschen</button>
+        </div>
       </div>
     </div>
   </div>
