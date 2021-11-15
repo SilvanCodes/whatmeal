@@ -4,17 +4,18 @@
 
   let suggestion: Promise<string>;
   let addMealInput: string;
-  let deleteMealInput: string;
 
   const getRandomMeal = () => {
-    suggestion = MEAL.random();
+    suggestion = MEAL.random().then((name) => (currentSuggestion = name));
   };
+
+  let currentSuggestion = "";
 
   const addMeal = () =>
     addMealInput && (MEAL.add(addMealInput), (addMealInput = ""));
 
   const deleteMeal = () =>
-    deleteMealInput && (MEAL.delete(deleteMealInput), (deleteMealInput = ""));
+    currentSuggestion && (MEAL.delete(currentSuggestion), getRandomMeal());
 
   onMount(getRandomMeal);
 </script>
@@ -45,11 +46,6 @@
         </div>
 
         <div class="elc-box elc-stack">
-          <input
-            bind:value={deleteMealInput}
-            on:change={deleteMeal}
-            type="text"
-          />
           <button on:click={deleteMeal}>Vorschlag löschen</button>
         </div>
       </div>
