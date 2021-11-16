@@ -26,11 +26,11 @@
       <div class="elc-stack elc-center">
         <h2 style="font-size: xx-large;">Wie wäre es mit</h2>
         <h1 style="font-size: xxx-large;">
-          <!-- {#await suggestion} -->
-          <span class="spin">?</span>
-          <!-- {:then name} -->
-          <!-- {name} -->
-          <!-- {/await} -->
+          {#await suggestion}
+            <span class="spin">?</span>
+          {:then name}
+            {name}
+          {/await}
         </h1>
       </div>
       <div class="elc-center">
