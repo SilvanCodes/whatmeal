@@ -27,7 +27,7 @@
         <h2 style="font-size: xx-large;">Wie wäre es mit</h2>
         <h1 style="font-size: xxx-large;">
           {#await suggestion}
-            <span class="spin">?</span>
+            <span class="pulse">?</span>
           {:then name}
             {name}
           {/await}
