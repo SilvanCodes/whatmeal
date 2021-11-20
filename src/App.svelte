@@ -37,7 +37,10 @@
         </h1>
       </div>
       <div class="elc-center">
-        <button on:click={getRandomMeal}>Anderer Vorschlag</button>
+        <button
+          style="font-size: calc(var(--s0) * 1.1);"
+          on:click={getRandomMeal}>Anderer Vorschlag</button
+        >
       </div>
     </div>
 
@@ -50,11 +53,11 @@
             on:change={addMeal}
             type="text"
           />
-          <button on:click={addMeal}>Vorschlag hinzufügen</button>
+          <button on:click={addMeal}>Eigenen Vorschlag hinzufügen</button>
         </div>
 
         <div class="elc-box elc-stack">
-          <button on:click={deleteMeal}>Vorschlag löschen</button>
+          <button on:click={deleteMeal}>Diesen Vorschlag löschen</button>
         </div>
       </div>
     </div>
