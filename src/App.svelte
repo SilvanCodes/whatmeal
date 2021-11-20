@@ -29,7 +29,7 @@
           {#await suggestion}
             <span class="pulse">?</span>
           {:then name}
-            {name}
+            <span style="word-break: break-word;">{name}</span>
           {/await}
         </h1>
       </div>
