@@ -3,7 +3,8 @@
   import { MEAL } from "./api";
 
   let suggestion: Promise<string>;
-  let addMealInput: string;
+  let addMealInput: HTMLInputElement;
+  let addMealInputValue: string;
 
   const getRandomMeal = () => {
     suggestion = MEAL.random().then((name) => (currentSuggestion = name));
@@ -12,7 +13,9 @@
   let currentSuggestion = "";
 
   const addMeal = () =>
-    addMealInput && (MEAL.add(addMealInput), (addMealInput = ""));
+    addMealInputValue
+      ? (MEAL.add(addMealInputValue), (addMealInputValue = ""))
+      : addMealInput.focus();
 
   const deleteMeal = () =>
     currentSuggestion && (MEAL.delete(currentSuggestion), getRandomMeal());
@@ -41,7 +44,12 @@
     <div class="elc-center">
       <div class="elc-stack">
         <div class="elc-box elc-stack">
-          <input bind:value={addMealInput} on:change={addMeal} type="text" />
+          <input
+            bind:this={addMealInput}
+            bind:value={addMealInputValue}
+            on:change={addMeal}
+            type="text"
+          />
           <button on:click={addMeal}>Vorschlag hinzufügen</button>
         </div>
 
