@@ -46,15 +46,14 @@
 
     <div class="elc-center">
       <div class="elc-stack">
-        <div class="elc-box elc-stack">
+        <form on:submit|preventDefault={addMeal} class="elc-box elc-stack">
           <input
             bind:this={addMealInput}
             bind:value={addMealInputValue}
-            on:change={addMeal}
             type="text"
           />
-          <button on:click={addMeal}>Eigenen Vorschlag hinzufügen</button>
-        </div>
+          <button>Eigenen Vorschlag hinzufügen</button>
+        </form>
 
         <div class="elc-box elc-stack">
           <button on:click={deleteMeal}>Diesen Vorschlag löschen</button>
