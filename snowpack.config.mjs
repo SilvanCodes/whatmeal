@@ -14,6 +14,9 @@ export default {
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
       },
     ],
+    ['snowpack-plugin-hash', {
+      baseUrl: '/'
+    }]
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -24,7 +27,7 @@ export default {
     // "bundle": true,
   },
   packageOptions: {
-    /* ... */
+    types: true
   },
   devOptions: {
     /* ... */
