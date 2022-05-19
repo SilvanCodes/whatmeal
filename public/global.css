@@ -76,3 +76,7 @@ input {
         transform: scale(calc(1 / var(--ratio) * 2));
     }
 }
+
+.text-align\:center {
+    text-align: center;
+}

@@ -51,6 +51,8 @@
             bind:this={addMealInput}
             bind:value={addMealInputValue}
             type="text"
+            placeholder="Was gab es gestern?"
+            class="text-align:center"
           />
           <button>Eigenen Vorschlag hinzufügen</button>
         </form>
