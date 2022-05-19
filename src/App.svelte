@@ -39,6 +39,7 @@
       <div class="elc-center">
         <button
           style="font-size: calc(var(--s0) * 1.1);"
+          class="pulse-on-click"
           on:click={getRandomMeal}>Anderer Vorschlag</button
         >
       </div>
@@ -54,11 +55,13 @@
             placeholder="Was gab es gestern?"
             class="text-align:center"
           />
-          <button>Eigenen Vorschlag hinzufügen</button>
+          <button class="pulse-on-click">Eigenen Vorschlag hinzufügen</button>
         </form>
 
         <div class="elc-box elc-stack">
-          <button on:click={deleteMeal}>Diesen Vorschlag löschen</button>
+          <button on:click={deleteMeal} class="pulse-on-click"
+            >Diesen Vorschlag löschen</button
+          >
         </div>
       </div>
     </div>
