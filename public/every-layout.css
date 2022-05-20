@@ -1,5 +1,5 @@
 :root {
-    --ratio: 2.71828;
+    --ratio: 1.22;
 
     /* Ratios for maintaining visual consistency. */
     --s-5: calc(var(--s-4) / var(--ratio));
@@ -45,6 +45,9 @@
 
     /* Measure width (characters per line) */
     --measure: 60ch;
+
+    /* Finest unit possible */
+    --finest: 1px;
 }
 
 * {
@@ -77,7 +80,7 @@ img {
 /* BOX-LAYOUT */
 .elc-box {
     --box-padding: var(--s0);
-    --box-border-width: var(--s-5);
+    --box-border-width: var(--finest);
     padding: var(--box-padding);
     border: var(--box-border-width) solid;
 }
