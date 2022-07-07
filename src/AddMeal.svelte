@@ -6,27 +6,29 @@
     let addMealInput: HTMLInputElement;
     let addMealInputValue: string;
 
-    let inputMode = false;
+    let state: "input" | "success" | "idle" = "idle";
 
-    const showInput = () => (inputMode = true);
+    const showInput = () => (state = "input");
+    const showSuccess = () => (state = "success");
+    const showIdle = () => (state = "idle");
 
     const addMeal = () =>
         addMealInputValue
             ? (MEAL.add(addMealInputValue),
               (addMealInputValue = ""),
-              (inputMode = false))
+              showSuccess())
             : addMealInput.focus();
 </script>
 
 <div class="elc-box display:grid">
-    {#if inputMode}
+    {#if state === "input"}
         <form
             class="switch"
+            transition:fade
             use:clickOutside
-            on:clickoutside={() => (inputMode = false)}
+            on:clickoutside={showIdle}
             on:submit|preventDefault={addMeal}
             on:introend={() => addMealInput.focus()}
-            transition:fade
         >
             <input
                 class="text-align:center"
@@ -35,15 +37,24 @@
                 type="text"
                 placeholder="Was gab es gestern?"
             />
-            <button class="send">
+            <button class="secondary">
                 <i class="mi-send rotate:90" />
             </button>
         </form>
-    {:else}
+    {:else if state === "success"}
+        <!-- will be shown for roughly var(--t-5) = 1000ms / var(--ratio)^5 ~= 370ms -->
+        <button
+            class="secondary switch"
+            transition:fade
+            on:introend={() => setTimeout(showIdle, 370)}
+        >
+            <i class="mi-check" />
+        </button>
+    {:else if state === "idle"}
         <button
             class="pulse-on-click secondary switch"
-            on:click={showInput}
             transition:fade
+            on:click={showInput}
         >
             Eigenen Vorschlag hinzufügen
         </button>
@@ -67,17 +78,9 @@
         box-shadow: var(--zero) var(--zero) var(--s-5) var(--color-blue) inset;
     }
 
-    .send {
-        background-color: transparent;
-    }
-
     /* see here: https://stackoverflow.com/a/59892853/8722320 */
     .switch {
         grid-column: 1/2;
         grid-row: 1/2;
-    }
-
-    i {
-        color: var(--color-white);
     }
 </style>
