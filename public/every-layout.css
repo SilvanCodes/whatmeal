@@ -2,6 +2,10 @@
     --ratio: 1.22;
 
     /* Ratios for maintaining visual consistency. */
+    --s-9: calc(var(--s-8) / var(--ratio));
+    --s-8: calc(var(--s-7) / var(--ratio));
+    --s-7: calc(var(--s-6) / var(--ratio));
+    --s-6: calc(var(--s-5) / var(--ratio));
     --s-5: calc(var(--s-4) / var(--ratio));
     --s-4: calc(var(--s-3) / var(--ratio));
     --s-3: calc(var(--s-2) / var(--ratio));
@@ -13,8 +17,16 @@
     --s3: calc(var(--s2) * var(--ratio));
     --s4: calc(var(--s3) * var(--ratio));
     --s5: calc(var(--s4) * var(--ratio));
+    --s6: calc(var(--s5) * var(--ratio));
+    --s7: calc(var(--s6) * var(--ratio));
+    --s8: calc(var(--s7) * var(--ratio));
+    --s9: calc(var(--s8) * var(--ratio));
 
     /* Ratios for maintaining timely consistency. */
+    --t-9: calc(var(--t-8) / var(--ratio));
+    --t-8: calc(var(--t-7) / var(--ratio));
+    --t-7: calc(var(--t-6) / var(--ratio));
+    --t-6: calc(var(--t-5) / var(--ratio));
     --t-5: calc(var(--t-4) / var(--ratio));
     --t-4: calc(var(--t-3) / var(--ratio));
     --t-3: calc(var(--t-2) / var(--ratio));
@@ -26,8 +38,16 @@
     --t3: calc(var(--t2) * var(--ratio));
     --t4: calc(var(--t3) * var(--ratio));
     --t5: calc(var(--t4) * var(--ratio));
+    --t6: calc(var(--t5) * var(--ratio));
+    --t7: calc(var(--t6) * var(--ratio));
+    --t8: calc(var(--t7) * var(--ratio));
+    --t9: calc(var(--t8) * var(--ratio));
 
     /* Ratios for maintaining general consistency. */
+    --v-9: calc(var(--v-8) / var(--ratio));
+    --v-8: calc(var(--v-7) / var(--ratio));
+    --v-7: calc(var(--v-6) / var(--ratio));
+    --v-6: calc(var(--v-5) / var(--ratio));
     --v-5: calc(var(--v-4) / var(--ratio));
     --v-4: calc(var(--v-3) / var(--ratio));
     --v-3: calc(var(--v-2) / var(--ratio));
@@ -39,6 +59,10 @@
     --v3: calc(var(--v2) * var(--ratio));
     --v4: calc(var(--v3) * var(--ratio));
     --v5: calc(var(--v4) * var(--ratio));
+    --v6: calc(var(--v5) * var(--ratio));
+    --v7: calc(var(--v6) * var(--ratio));
+    --v8: calc(var(--v7) * var(--ratio));
+    --v9: calc(var(--v8) * var(--ratio));
 
     /* Zero value*/
     --zero: 0;
