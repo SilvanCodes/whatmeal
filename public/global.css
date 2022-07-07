@@ -7,6 +7,7 @@
     --font-size-base-plus: var(--s2);
     --font-size-big: var(--s3);
     --font-size-big-plus: var(--s5);
+    --flex-grow-max: 999;
 }
 
 * {
@@ -47,6 +48,7 @@ button {
 
 button.primary {
     background: var(--color-orange);
+    min-inline-size: fit-content;
 }
 
 button.secondary {
@@ -139,4 +141,21 @@ input {
 .pulse-on-click:active {
     transform: scale(var(--v-1));
     transition: transform var(--t-5) ease-in;
+}
+
+.glow-on-click {
+    transition: color var(--t4) ease-out;
+}
+
+.glow-on-click:active {
+    color: var(--color-blue);
+    transition: color var(--zero) linear;
+}
+
+.flex-grow\:max {
+    flex-grow: var(--flex-grow-max);
+}
+
+.flex-grow\:1 {
+    flex-grow: 1;
 }
