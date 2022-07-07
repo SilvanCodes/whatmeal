@@ -50,7 +50,7 @@
         class="font-size:base-plus glow-on-click secondary flex-grow:1"
         on:click={shareMeal}
       >
-        <i class="mi-share elc-icon" />
+        <i class="mi-copy elc-icon" />
       </button>
     </div>
   </div>
