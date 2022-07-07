@@ -1,10 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { MEAL } from "./api";
+  import AddMeal from "./AddMeal.svelte";
 
   let suggestion: Promise<string>;
-  let addMealInput: HTMLInputElement;
-  let addMealInputValue: string;
 
   const getRandomMeal = () => {
     suggestion = MEAL.random().then((name) => (currentSuggestion = name));
@@ -13,11 +12,6 @@
   const promt = "Wie wäre es mit";
 
   let currentSuggestion = "";
-
-  const addMeal = () =>
-    addMealInputValue
-      ? (MEAL.add(addMealInputValue), (addMealInputValue = ""))
-      : addMealInput.focus();
 
   const deleteMeal = () =>
     currentSuggestion && (MEAL.delete(currentSuggestion), getRandomMeal());
@@ -63,18 +57,7 @@
 
   <div class="elc-center">
     <div class="elc-stack">
-      <form on:submit|preventDefault={addMeal} class="elc-box elc-stack">
-        <input
-          bind:this={addMealInput}
-          bind:value={addMealInputValue}
-          type="text"
-          placeholder="Was gab es gestern?"
-          class="text-align:center"
-        />
-        <button class="pulse-on-click secondary"
-          >Eigenen Vorschlag hinzufügen</button
-        >
-      </form>
+      <AddMeal />
 
       <div class="elc-box">
         <button on:click={deleteMeal} class="pulse-on-click secondary"
