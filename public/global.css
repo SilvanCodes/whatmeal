@@ -159,3 +159,7 @@ input {
 .flex-grow\:1 {
     flex-grow: 1;
 }
+
+.display\:grid {
+    display: grid;
+}

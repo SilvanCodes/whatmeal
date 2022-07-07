@@ -3,23 +3,23 @@
 
 /* CSS MODULES */
 declare module '*.module.css' {
-  const classes: {[key: string]: string};
+  const classes: { [key: string]: string };
   export default classes;
 }
 declare module '*.module.scss' {
-  const classes: {[key: string]: string};
+  const classes: { [key: string]: string };
   export default classes;
 }
 declare module '*.module.sass' {
-  const classes: {[key: string]: string};
+  const classes: { [key: string]: string };
   export default classes;
 }
 declare module '*.module.less' {
-  const classes: {[key: string]: string};
+  const classes: { [key: string]: string };
   export default classes;
 }
 declare module '*.module.styl' {
-  const classes: {[key: string]: string};
+  const classes: { [key: string]: string };
   export default classes;
 }
 
@@ -57,3 +57,9 @@ declare module '*.png' {
 }
 
 /* CUSTOM: ADD YOUR OWN HERE */
+
+declare namespace svelte.JSX {
+  interface HTMLAttributes<T> {
+    onclickoutside?: EventHandler<Event, T> | undefined | null;
+  }
+}
