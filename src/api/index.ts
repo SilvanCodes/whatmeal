@@ -11,7 +11,7 @@ const api = async (path: string, init: RequestInit) =>
         }
     }).then(r => r.json()).catch(console.error);
 
-const POST = async (path: string, data: object) => (console.log(data), api(path, { method: 'POST', body: JSON.stringify(data) }))
+const POST = async (path: string, data: object) => api(path, { method: 'POST', body: JSON.stringify(data) })
 
 export default { POST };
 
