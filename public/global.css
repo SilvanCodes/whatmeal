@@ -144,7 +144,7 @@ input {
 }
 
 .glow-on-click {
-    transition: color var(--t4) ease-out;
+    transition: color var(--t-5) ease-out;
 }
 
 .glow-on-click:active {
