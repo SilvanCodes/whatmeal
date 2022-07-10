@@ -3,15 +3,25 @@
   import { MEAL } from "./api";
   import AddMeal from "./AddMeal.svelte";
 
-  let suggestion: Promise<string>;
-
-  const getRandomMeal = () => {
-    suggestion = MEAL.random().then((name) => (currentSuggestion = name));
-  };
-
   const promt = "Wie wäre es mit";
 
+  const searchAdditions = ["Rezept"];
+
   let currentSuggestion = "";
+
+  let suggestion: Promise<string>;
+
+  let searchTerm: string;
+  let searchURL: string;
+
+  const getRandomMeal = () =>
+    (suggestion = MEAL.random().then(
+      (name) => (
+        (searchTerm = [name, searchAdditions].join(" ").replace(/\s+/g, "+")),
+        (searchURL = `https://www.duckduckgo.com/?q=${searchTerm}`),
+        (currentSuggestion = name)
+      )
+    ));
 
   const deleteMeal = () =>
     currentSuggestion && (MEAL.delete(currentSuggestion), getRandomMeal());
@@ -21,8 +31,11 @@
     window.navigator.share({
       title: "WhatMeal?",
       text: [promt, `${currentSuggestion}?`].join(" "),
-      url: `https://${window.location.host}`,
+      url: searchURL,
     });
+
+  const searchMeal = () =>
+    currentSuggestion && window.open(searchURL, "_blank");
 
   onMount(getRandomMeal);
 </script>
@@ -44,8 +57,14 @@
     <div class="elc-cluster">
       <button
         class="pulse-on-click font-size:base-plus primary flex-grow:max"
-        on:click={getRandomMeal}>Anderer Vorschlag</button
+        on:click={searchMeal}>Rezept suchen</button
       >
+      <button
+        class="font-size:base-plus glow-on-click secondary flex-grow:1"
+        on:click={getRandomMeal}
+      >
+        <i class="mi-refresh elc-icon" />
+      </button>
       <button
         class="font-size:base-plus glow-on-click secondary flex-grow:1"
         on:click={shareMeal}
