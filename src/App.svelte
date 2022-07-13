@@ -26,13 +26,13 @@
   const deleteMeal = () =>
     currentSuggestion && (MEAL.delete(currentSuggestion), getRandomMeal());
 
-  const shareMeal = () =>
-    currentSuggestion &&
-    window.navigator.share({
-      title: "WhatMeal?",
-      text: [promt, `${currentSuggestion}?`].join(" "),
-      url: searchURL,
-    });
+  // const shareMeal = () =>
+  //   currentSuggestion &&
+  //   window.navigator.share({
+  //     title: "WhatMeal?",
+  //     text: [promt, `${currentSuggestion}?`].join(" "),
+  //     url: searchURL,
+  //   });
 
   const searchMeal = () =>
     currentSuggestion && window.open(searchURL, "_blank");
@@ -65,10 +65,12 @@
       >
         <i class="mi-refresh elc-icon" />
       </button>
+      <!--
       <button
         class="font-size:base-plus glow-on-click secondary flex-grow:1"
         on:click={shareMeal}
       >
+      -->
         <i class="mi-copy elc-icon" />
       </button>
     </div>
