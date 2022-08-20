@@ -13,7 +13,7 @@
     const showIdle = () => (state = "idle");
 
     const invitingPlaceholder = "Gericht hinzufügen";
-    const supportingPlaceholder = "Was gab es gestern?";
+    const supportingPlaceholder = "Denk' an was Leckeres";
 
     const addMeal = () =>
         addMealInputValue
