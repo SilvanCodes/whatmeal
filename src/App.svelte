@@ -5,8 +5,9 @@
   import RandomMeal from "./RandomMeal.svelte";
 </script>
 
-<main class="elc-center ">
-  <div class="elc-stack">
+<main class="elc-center">
+  <div class="dummy-for-stack" />
+  <div class="elc-stack main-content">
     <ShowMeal />
 
     <div class="elc-stack elc-center">
@@ -26,7 +27,8 @@
     --stack-split: auto;
   }
 
-  main {
+  .main-content {
     padding: var(--s3);
+    margin-block: auto;
   }
 </style>
