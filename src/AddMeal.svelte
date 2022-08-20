@@ -12,6 +12,9 @@
     const showSuccess = () => (state = "success");
     const showIdle = () => (state = "idle");
 
+    const invitingPlaceholder = "Gericht hinzufügen";
+    const supportingPlaceholder = "Was gab es gestern?";
+
     const addMeal = () =>
         addMealInputValue
             ? (MEAL.add(addMealInputValue),
@@ -20,7 +23,7 @@
             : addMealInput.focus();
 </script>
 
-<div class="elc-box display:grid">
+<div class="display:grid">
     {#if state === "input"}
         <form
             class="switch"
@@ -35,10 +38,10 @@
                 bind:this={addMealInput}
                 bind:value={addMealInputValue}
                 type="text"
-                placeholder="Was gab es gestern?"
+                placeholder={supportingPlaceholder}
             />
             <button class="secondary">
-                <i class="mi-send rotate:90" />
+                <i class="mi-send  display:inline-block transform:rotateZ:90" />
             </button>
         </form>
     {:else if state === "success"}
@@ -51,13 +54,20 @@
             <i class="mi-check" />
         </button>
     {:else if state === "idle"}
-        <button
-            class="pulse-on-click secondary switch"
+        <form
+            class="switch"
             transition:fade
-            on:click={showInput}
+            on:click|preventDefault={showInput}
         >
-            Eigenen Vorschlag hinzufügen
-        </button>
+            <input
+                class="text-align:center"
+                type="text"
+                placeholder={invitingPlaceholder}
+            />
+            <button class="secondary">
+                <i class="mi-send  display:inline-block transform:rotateZ:90" />
+            </button>
+        </form>
     {/if}
 </div>
 
@@ -71,9 +81,6 @@
 
     input {
         inline-size: 100%;
-    }
-
-    input:focus {
         outline: none;
         box-shadow: var(--zero) var(--zero) var(--s-5) var(--color-blue) inset;
     }

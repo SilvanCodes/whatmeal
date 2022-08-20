@@ -36,7 +36,8 @@ body {
 }
 
 html,
-body {
+body,
+main {
     block-size: 100%;
 }
 
@@ -162,4 +163,12 @@ input {
 
 .display\:grid {
     display: grid;
+}
+
+.display\:inline-block {
+    display: inline-block;
+}
+
+.transform\:rotateZ\:90 {
+    transform: rotateZ(90deg);
 }
