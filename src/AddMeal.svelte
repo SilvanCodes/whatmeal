@@ -23,7 +23,7 @@
             : addMealInput.focus();
 </script>
 
-<div class="display:grid">
+<div class="display:grid add-meal-container">
     {#if state === "input"}
         <form
             class="switch"
@@ -72,6 +72,9 @@
 </div>
 
 <style>
+    .add-meal-container {
+        inline-size: 100%;
+    }
     form {
         background-color: var(--color-blue);
         border-radius: var(--border-radius-base);
