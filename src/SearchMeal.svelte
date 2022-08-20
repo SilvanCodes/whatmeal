@@ -3,10 +3,15 @@
 
     const searchAdditions = ["Rezept"];
 
-    let searchTerm = [$currentMeal, searchAdditions]
-        .join(" ")
-        .replace(/\s+/g, "+");
-    let searchURL = `https://www.duckduckgo.com/?q=${searchTerm}`;
+    let searchTerm = "";
+    let searchURL = "";
+
+    $: {
+        searchTerm = [$currentMeal, searchAdditions]
+            .join(" ")
+            .replace(/\s+/g, "+");
+        searchURL = `https://www.duckduckgo.com/?q=${searchTerm}`;
+    }
 
     const searchMeal = () => $currentMeal && window.open(searchURL, "_blank");
 </script>
