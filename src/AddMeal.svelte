@@ -16,8 +16,8 @@
     const supportingPlaceholder = "Denk' an was Leckeres";
 
     const addMeal = () =>
-        addMealInputValue
-            ? (MEAL.add(addMealInputValue),
+        addMealInputValue.trim()
+            ? (MEAL.add(addMealInputValue.trim()),
               (addMealInputValue = ""),
               showSuccess())
             : addMealInput.focus();
